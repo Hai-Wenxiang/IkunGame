@@ -137,6 +137,7 @@
     <ClCompile Include="music.cpp" />
     <ClCompile Include="role.cpp" />
     <ClCompile Include="scene.cpp" />
+    <ClCompile Include="scene_load.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bag.h" />
@@ -146,6 +147,7 @@
     <ClInclude Include="music.h" />
     <ClInclude Include="role.h" />
     <ClInclude Include="scene.h" />
+    <ClInclude Include="scene_load.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="music\ji.wav" />

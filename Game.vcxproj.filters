@@ -60,6 +60,9 @@
     <ClCompile Include="bag.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="scene_load.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h">
@@ -81,6 +84,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="bag.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_load.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

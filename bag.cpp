@@ -100,10 +100,10 @@ void Bag::paintBagInGame(cv::Mat gameMat)
 		// »æÖÆÊýÁ¿
 		cv::putText(gameMat,
 			std::to_string(goods[i].getNum()),
-			cv::Point(185 + i * 70, 715),
+			cv::Point(184 + i * 70, 718),
 			cv::FONT_HERSHEY_SIMPLEX,
-			0.5,
-			cv::Scalar(121, 0, 0));
+			0.55,
+			cv::Scalar(255, 0, 0));
 	}
 	return;
 }

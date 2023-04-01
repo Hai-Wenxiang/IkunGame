@@ -350,15 +350,10 @@ static void addRoleState(cv::Mat mat, Role role)
 	return;
 }
 
-static void addBagState(cv::Mat mat)
-{
-	return;
-}
-
 void Scene::addState(cv::Mat mat)
 {
 	addRoleState(mat, role);
-	addBagState(mat);
+	bag.paintBagInGame(mat);
 	return;
 }
 
