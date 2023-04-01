@@ -22,7 +22,7 @@ cv::Mat getWaterIceMat(void)
 }
 
 /* Ë®Óò-Ä¾Í·01 */
-cv::Mat getWaterWood01(void)
+cv::Mat getWaterWood01Mat(void)
 {
     static cv::Mat waterWood01Mat = cv::imread("pictures/box/water/wood01.png");
     return waterWood01Mat;

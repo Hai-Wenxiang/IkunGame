@@ -94,7 +94,7 @@ static cv::Mat getPlainMatByBase(unsigned char base)
 {
 	switch (base) {
 	case 0x0:	// 水域
-		return cv::imread("pictures/box/water/plain.png");
+		return getWaterPlainMat();
 	case 0x1:	// 深水域
 	case 0x2:	// 森林
 	case 0x3:	// 深森林
@@ -109,7 +109,7 @@ static cv::Mat getUnknownMatByBase(unsigned int base)
 {
 	switch (base) {
 	case 0x0:	// 水域
-		return cv::imread("pictures/box/water/unknown.png");
+		return getWaterUnknownMat();
 	case 0x1:	// 深水域
 	case 0x2:	// 森林
 	case 0x3:	// 深森林
@@ -124,9 +124,9 @@ static cv::Mat getWaterMat(unsigned short type)
 {
 	switch (type) {
 	case WATER_ICE:
-		return cv::imread("pictures/box/water/ice.png");
+		return getWaterIceMat();
 	case WATER_WOOD_01:
-		return cv::imread("pictures/box/water/wood01.png");
+		return getWaterWood01Mat();
 	default:
 		break;
 	}

@@ -7,6 +7,6 @@
 cv::Mat getWaterPlainMat(void);
 cv::Mat getWaterUnknownMat(void);
 cv::Mat getWaterIceMat(void);
-cv::Mat getWaterWood01(void);
+cv::Mat getWaterWood01Mat(void);
 
 #endif // _BOX_LOAD_H_
