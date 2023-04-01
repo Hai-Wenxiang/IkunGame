@@ -7,6 +7,7 @@
 #include "music.h"
 #include "bag.h"
 #include "scene_load.h"
+#include "tools.h"
 
 /* 一些界面的种类 */
 #define WELCOME 0		// 欢迎界面

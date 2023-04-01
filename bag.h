@@ -22,7 +22,7 @@ public:
 
 	bool putGoodsIn(Goods newGoods);
 	Goods throwAway(void);
-	void paintBagInGame(cv::Mat gameMat);
+	void paintBagInGame(cv::Mat& gameMat);
 };
 
 #endif // _BAG_H_

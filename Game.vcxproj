@@ -122,7 +122,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bag.cpp" />
+    <ClCompile Include="goods_load.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="box_load.cpp" />
     <ClCompile Include="goods.cpp" />
@@ -138,9 +139,11 @@
     <ClCompile Include="role.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="scene_load.cpp" />
+    <ClCompile Include="tools.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bag.h" />
+    <ClInclude Include="goods_load.h" />
     <ClInclude Include="box.h" />
     <ClInclude Include="box_load.h" />
     <ClInclude Include="goods.h" />
@@ -148,6 +151,7 @@
     <ClInclude Include="role.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="scene_load.h" />
+    <ClInclude Include="tools.h" />
   </ItemGroup>
   <ItemGroup>
     <Media Include="music\ji.wav" />

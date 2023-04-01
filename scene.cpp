@@ -186,7 +186,24 @@ void Scene::dig(void)
 	return;
 }
 
-/* 判定方块是否可拾取 */
+/* Box内容变为Goods内容 */
+static Goods box2Goods(Box box)
+{
+	Goods goods = Goods();
+	switch (box.getType()) {
+	case WATER_WOOD_01:
+	case FOREST_WOOD_01:
+	case DEEP_FOREST_WOOD_01:
+		goods.setType(1);
+		goods.setNum(1);
+		break;
+	default:
+		break;
+	}
+	return goods;
+}
+
+/* 判定方块是否可拾取，若可取则放进背包并返回1 */
 bool Scene::canFetch(Box box)
 {
 	// 判定方块本身是否可拾取
@@ -195,22 +212,24 @@ bool Scene::canFetch(Box box)
 	}
 
 	// 判定背包状态、、、、、、、、、、、
+	Goods goods = box2Goods(box);
+	if (goods.getType() != 0 && bag.putGoodsIn(goods)) {
+		return true;
+	}
 
-	return true;
+	return false;
 }
 
 /* 拾取面前的方块内容 */
 void Scene::fetch(void)
 {
 	Box* towardBox = getTowardBox();
-	if (!canFetch(*towardBox)) {
-		return;
-	}
 
 	// 放进背包
-
-	// 清空该格
-	towardBox->setPlain();
+	if (canFetch(*towardBox)) {
+		// 清空该格
+		towardBox->setPlain();
+	}
 	return;
 }
 
@@ -296,14 +315,16 @@ void Scene::parseScene(void)
 cv::Mat Scene::getMatInWelcome(void)
 {
 	cv::Mat mat = getWelcomeMat().clone();
-	cv::ellipse(mat, cv::Point(width >> 1, 350 + welcomeMode * 180), cv::Size(300, 80), 0, 0, 360, cv::Scalar(0, 0, 0), 3);
+	cv::ellipse(mat, cv::Point(width >> 1, 350 + welcomeMode * 180),
+		cv::Size(300, 80), 0, 0, 360, cv::Scalar(0), 3);
 	return mat;
 }
 
 cv::Mat Scene::getMatInSetFPS(void)
 {
 	cv::Mat mat = getSetFPSMat().clone();
-	cv::ellipse(mat, cv::Point(width >> 1, 325 + fpsMode * 180), cv::Size(200, 60), 0, 0, 360, cv::Scalar(0, 0, 0), 3);
+	cv::ellipse(mat, cv::Point(width >> 1, 325 + fpsMode * 180),
+		cv::Size(200, 60), 0, 0, 360, cv::Scalar(0), 3);
 	return mat;
 }
 
@@ -478,6 +499,6 @@ cv::Mat Scene::getMat(void)
 	case GAME:
 		return getMatInGame();
 	default:
-		return cv::imread("pictures/default.png");
+		return getDefaultMat();
 	}
 }

@@ -71,3 +71,14 @@ bool Goods::sub(unsigned int sub)
 	}
 	return false;
 }
+
+cv::Mat Goods::getMat(void)
+{
+	switch (type) {
+	case 1:
+		return getWood01Mat(state);
+	default:
+		break;
+	}
+	return getDefaultMat();
+}

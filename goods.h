@@ -1,6 +1,8 @@
 #ifndef _GOODS_H_
 #define _GOODS_H_
 
+#include "goods_load.h"
+
 #define MAXGOODSNUM 114514	// 物品最大数量
 
 /**
@@ -34,6 +36,7 @@ public:
 	bool equals(Goods goods);
 	bool add(unsigned int add);
 	bool sub(unsigned int sub);
+	cv::Mat getMat(void);
 };
 
 #endif // _GOODS_H_

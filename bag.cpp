@@ -87,7 +87,7 @@ Goods Bag::throwAway(void)
 }
 
 /* 在游戏图中绘制背包状态 */
-void Bag::paintBagInGame(cv::Mat gameMat)
+void Bag::paintBagInGame(cv::Mat& gameMat)
 {
 	for (int i = 0; i < CAPACITY; i++) {
 		// 绘制框
@@ -97,6 +97,14 @@ void Bag::paintBagInGame(cv::Mat gameMat)
 			cv::Scalar(127, 127, 127),
 			3);
 		// 绘制物品
+		if (goods[i].getType() > 0) {
+			goods[i].getMat().copyTo(gameMat(cv::Rect(
+				185 + i * 60,
+				710,
+				60,
+				60
+				)));
+		}
 		// 绘制数量
 		cv::putText(gameMat,
 			std::to_string(goods[i].getNum()),
@@ -104,6 +112,9 @@ void Bag::paintBagInGame(cv::Mat gameMat)
 			cv::FONT_HERSHEY_SIMPLEX,
 			0.55,
 			cv::Scalar(255, 0, 0));
+
+		// 绘制手握部分
+
 	}
 	return;
 }

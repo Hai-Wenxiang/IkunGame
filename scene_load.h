@@ -2,6 +2,7 @@
 #define _SCENE_LOAD_H_
 
 #include <opencv2/opencv.hpp>
+#include "tools.h"
 
 cv::Mat getWelcomeMat(void);
 cv::Mat getSetFPSMat(void);

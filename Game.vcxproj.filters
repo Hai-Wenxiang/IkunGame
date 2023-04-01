@@ -34,6 +34,9 @@
     <Filter Include="资源文件\pictures\box\deep_water">
       <UniqueIdentifier>{d9ea9533-abd1-4ab9-b327-5bd4b5d9dc7b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\pictures\goods">
+      <UniqueIdentifier>{a669677d-e9da-40cd-9246-1c54f593d4b2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="box.cpp">
@@ -63,6 +66,12 @@
     <ClCompile Include="scene_load.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="goods_load.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h">
@@ -87,6 +96,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="scene_load.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="goods_load.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

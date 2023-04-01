@@ -2,6 +2,7 @@
 #define _BOX_LOAD_H_
 
 #include <opencv2/opencv.hpp>
+#include "tools.h"
 
 /* Ë®ÓòÍ¼Æ¬ */
 cv::Mat getWaterPlainMat(void);
