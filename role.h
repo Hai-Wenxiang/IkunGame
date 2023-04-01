@@ -10,33 +10,34 @@
 
 /* 护盾类型结构体 */
 typedef struct hieldStruct {
-	double freeRatio;	// 免伤比例 [0.0, 100.0)
-	double remain;		// 剩余量 [0.0, 100.0]
+	short freeRatio;	// [0 , 10000) * 0.01，代表免伤比例
+	short remain;		// 每100代表1个百分点，剩余量 [0, 10000] * 0.01
 } Hield;
 
 class Role {
 private:
-	double blood;			// 血量，上限为100，0时死亡
-	Hield hield;			// 护盾
-	double satiety;			// 饱腹度，[0.0, 100.0]，不能撑
-	unsigned char toward;	// 朝向，0坐1上2右3下
+	short blood;					// [0 ~ 10000]血量，上限为10000，0时死亡
+	Hield hield;					// 护盾
+	unsigned short satiety : 14;	// 饱腹度，[0, 10000] * 0.01，不能撑
+	unsigned short toward : 2;		// 朝向，0左 1上 2右 3下
+	unsigned short state;			// 角色的状态
 
 
 public:
-	Role();
+	Role(void);
 	~Role(void);
 
-	void setBlood(double newBlood);
-	double getBlood(void);
+	void setBlood(short newBlood);
+	short getBlood(void);
 	void setHield(Hield newHield);
 	Hield getHield(void);
-	void setSatiety(double newSatiety);
-	double getSatiety(void);
-	void setToward(unsigned char newToward);
-	unsigned char getToward(void);
+	void setSatiety(short newSatiety);
+	short getSatiety(void);
+	void setToward(short newToward);
+	short getToward(void);
 
 	bool isAlive(void);
-	void changeBlood(double delta);
+	void changeBlood(short delta);
 	cv::Mat getMat(void);
 };
 

@@ -1,12 +1,13 @@
 #include "role.h"
 
-Role::Role()
+Role::Role(void)
 {
-	blood = 100.0;
-	hield.freeRatio = 0.0;
-	hield.remain = 0.0;
-	satiety = 0.0;
+	blood = 10000;
+	hield.freeRatio = 0;
+	hield.remain = 0;
+	satiety = 0;
 	toward = LEFT;
+	state = 0;
 	return;
 }
 
@@ -15,13 +16,13 @@ Role::~Role(void)
 	return;
 }
 
-void Role::setBlood(double newBlood)
+void Role::setBlood(short newBlood)
 {
 	blood = newBlood;
 	return;
 }
 
-double Role::getBlood(void)
+short Role::getBlood(void)
 {
 	return blood;
 }
@@ -37,26 +38,26 @@ Hield Role::getHield(void)
 	return hield;
 }
 
-void Role::setSatiety(double newSatiety)
+void Role::setSatiety(short newSatiety)
 {
-	if (newSatiety >= 0.0 && newSatiety <= 100.0) {
+	if (newSatiety >= 0 && newSatiety <= 10000) {
 		satiety = newSatiety;
 	}
 	return;
 }
 
-double Role::getSatiety(void)
+short Role::getSatiety(void)
 {
 	return satiety;
 }
 
-void Role::setToward(unsigned char newToward)
+void Role::setToward(short newToward)
 {
 	toward = newToward;
 	return;
 }
 
-unsigned char Role::getToward(void)
+short Role::getToward(void)
 {
 	return toward;
 }
@@ -64,27 +65,49 @@ unsigned char Role::getToward(void)
 /* 判定角色是否活着 */
 bool Role::isAlive(void)
 {
-	return blood > 0.0;
+	return blood > 0;
 }
 
 /* 改变血量 */
-void Role::changeBlood(double delta)
+void Role::changeBlood(short delta)
 {
 	blood += delta;
-	if (blood < 0.0) {
-		blood = 0.0;
+	if (blood < 0) {
+		blood = 0;
 	}
-	else if (blood > 100.0) {
-		blood = 100.0;
+	else if (blood > 10000) {
+		blood = 10000;
 	}
 	return;
 }
 
+static cv::Mat getRoleMat(unsigned short state)
+{
+	static cv::Mat roleMats[] = {
+		cv::imread("pictures/role/role00000.png")
+	};
+
+	if (state < sizeof(roleMats) / sizeof(cv::Mat)) {
+		return roleMats[state];
+	}
+
+	static cv::Mat defaultMat = cv::imread("pictures/default.png");
+	return defaultMat;
+}
+
 cv::Mat Role::getMat(void)
 {
-	cv::Mat roleMat =  cv::imread("pictures/role/role00000.png");
-	if (toward > 0) {
+	cv::Mat roleMat = getRoleMat(state).clone();
+	switch (toward) {
+	case 1:
+	case 3:
 		cv::rotate(roleMat, roleMat, toward - 1);
+		break;
+	case 2:
+		cv::flip(roleMat, roleMat, 1);
+		break;
+	default:
+		break;
 	}
 	return roleMat;
 }
