@@ -1,6 +1,9 @@
-#pragma once
+#ifndef _BOX_H_
+#define _BOX_H_
+
 #include <Windows.h>
 #include <opencv2/opencv.hpp>
+#include "box_load.h"
 
 #define BOXWIDTH 60	// 每个方块边长为60
 
@@ -66,3 +69,5 @@ public:
 	void dig(void);
 	void setPlain(void);
 };
+
+#endif // _BOX_H_

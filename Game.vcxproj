@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="box.cpp" />
+    <ClCompile Include="box_load.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="music.cpp" />
     <ClCompile Include="role.cpp" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h" />
+    <ClInclude Include="box_load.h" />
     <ClInclude Include="music.h" />
     <ClInclude Include="role.h" />
     <ClInclude Include="scene.h" />

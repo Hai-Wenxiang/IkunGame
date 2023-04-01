@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _ROLE_H_
+#define _ROLE_H_
+
 #include <opencv2/opencv.hpp>
 
 #define LEFT 0
@@ -37,3 +39,5 @@ public:
 	void changeBlood(double delta);
 	cv::Mat getMat(void);
 };
+
+#endif // _ROLE_H_

@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _SCENE_H_
+#define _SCENE_H_
+
 #include <thread>
 #include "role.h"
 #include "box.h"
@@ -71,3 +73,5 @@ public:
 	void parse(int key);
 	cv::Mat getMat(void);
 };
+
+#endif // _SCENE_H_

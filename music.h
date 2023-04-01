@@ -1,4 +1,6 @@
-#pragma once
+#ifndef _MUSIC_H_
+#define _MUSIC_H_
+
 #include <string>
 #include <Windows.h>
 #pragma comment(lib,"WinMM.Lib")
@@ -13,3 +15,5 @@ void playOnce(const char* musicPos);
 
 /* —≠ª∑≤•∑≈“Ù¿÷ */
 void playLoop(const char* musicPos);
+
+#endif // _MUSIC_H_
