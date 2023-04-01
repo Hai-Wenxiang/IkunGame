@@ -295,14 +295,14 @@ void Scene::parseScene(void)
 
 cv::Mat Scene::getMatInWelcome(void)
 {
-	cv::Mat mat = cv::imread("pictures/scene/welcome.png");
+	cv::Mat mat = getWelcomeMat().clone();
 	cv::ellipse(mat, cv::Point(width >> 1, 350 + welcomeMode * 180), cv::Size(300, 80), 0, 0, 360, cv::Scalar(0, 0, 0), 3);
 	return mat;
 }
 
 cv::Mat Scene::getMatInSetFPS(void)
 {
-	cv::Mat mat = cv::imread("pictures/scene/setFPS.png");
+	cv::Mat mat = getSetFPSMat().clone();
 	cv::ellipse(mat, cv::Point(width >> 1, 325 + fpsMode * 180), cv::Size(200, 60), 0, 0, 360, cv::Scalar(0, 0, 0), 3);
 	return mat;
 }
