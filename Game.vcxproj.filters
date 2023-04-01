@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="资源文件\music">
+      <UniqueIdentifier>{3a20a611-85df-43b7-8d62-49ae1e77b12f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\pictures">
+      <UniqueIdentifier>{0406ea51-9f65-4248-ac26-d47238f0d9cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\pictures\box">
+      <UniqueIdentifier>{ebcd177e-b1c8-43e2-b383-000fc9e0c31e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\pictures\role">
+      <UniqueIdentifier>{c6a78b94-c176-4a10-a225-64878076dbdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\pictures\scene">
+      <UniqueIdentifier>{ddff1f4e-3879-4536-b1d1-f06d3d552779}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\pictures\box\water">
+      <UniqueIdentifier>{37cf7a29-999c-4eaa-8607-808a93be1dff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\pictures\box\deep_water">
+      <UniqueIdentifier>{d9ea9533-abd1-4ab9-b327-5bd4b5d9dc7b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="box.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="music.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="role.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="box.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="music.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="role.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="music\ji.wav">
+      <Filter>资源文件\music</Filter>
+    </Media>
+    <Media Include="music\ngm.wav">
+      <Filter>资源文件\music</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="pictures\default.png">
+      <Filter>资源文件\pictures</Filter>
+    </Image>
+    <Image Include="pictures\box\water\ice.png">
+      <Filter>资源文件\pictures\box\water</Filter>
+    </Image>
+    <Image Include="pictures\box\water\plain.png">
+      <Filter>资源文件\pictures\box\water</Filter>
+    </Image>
+    <Image Include="pictures\box\water\unknown.png">
+      <Filter>资源文件\pictures\box\water</Filter>
+    </Image>
+    <Image Include="pictures\box\water\wood01.png">
+      <Filter>资源文件\pictures\box\water</Filter>
+    </Image>
+    <Image Include="pictures\scene\setFPS.png">
+      <Filter>资源文件\pictures\scene</Filter>
+    </Image>
+    <Image Include="pictures\scene\welcome.png">
+      <Filter>资源文件\pictures\scene</Filter>
+    </Image>
+    <Image Include="pictures\role\role00000.png">
+      <Filter>资源文件\pictures\role</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
