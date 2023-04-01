@@ -254,8 +254,21 @@ void Scene::parseKeyInGame(int key)
 		move(key);
 		break;
 
-	// 挖掘方块
+	// 切换背包中的手持部分
+	case 'q':
+		bag.setAtHandLeft();
+		break;
 	case 'e':
+		bag.setAtHandRight();
+		break;
+
+	// 整理背包
+	case 't':
+		bag.tidyUp();
+		break;
+
+	// 挖掘方块
+	case 'r':
 		dig();
 		break;
 
@@ -316,7 +329,7 @@ cv::Mat Scene::getMatInWelcome(void)
 {
 	cv::Mat mat = getWelcomeMat().clone();
 	cv::ellipse(mat, cv::Point(width >> 1, 350 + welcomeMode * 180),
-		cv::Size(300, 80), 0, 0, 360, cv::Scalar(0), 3);
+		cv::Size(300, 80), 0, 0, 360, cv::Scalar(0, 0, 0, 255), 3);
 	return mat;
 }
 
@@ -324,14 +337,13 @@ cv::Mat Scene::getMatInSetFPS(void)
 {
 	cv::Mat mat = getSetFPSMat().clone();
 	cv::ellipse(mat, cv::Point(width >> 1, 325 + fpsMode * 180),
-		cv::Size(200, 60), 0, 0, 360, cv::Scalar(0), 3);
+		cv::Size(200, 60), 0, 0, 360, cv::Scalar(0, 0, 0, 255), 3);
 	return mat;
 }
 
 void Scene::addMap(cv::Mat mat)
 {
 	cv::Point point1, rolePoint;
-	cv::Mat roleMat = role.getMat();
 
 	point1.x = rolePos.x - (seeCols >> 1);
 	point1.y = rolePos.y - (seeRows >> 1);
@@ -380,7 +392,7 @@ void Scene::addState(cv::Mat mat)
 
 cv::Mat Scene::getMatInGame(void)
 {
-	cv::Mat mat = cv::Mat(height, width, CV_8UC3, cv::Scalar(100, 100, 100));
+	cv::Mat mat = cv::Mat(height, width, CV_8UC4, cv::Scalar(100, 100, 100, 255));
 	addMap(mat);
 	addState(mat);
 	return mat;

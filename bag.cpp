@@ -89,6 +89,7 @@ Goods Bag::throwAway(void)
 /* 在游戏图中绘制背包状态 */
 void Bag::paintBagInGame(cv::Mat& gameMat)
 {
+	cv::Mat goodsMat;
 	for (int i = 0; i < CAPACITY; i++) {
 		// 绘制框
 		cv::rectangle(gameMat,
@@ -98,23 +99,57 @@ void Bag::paintBagInGame(cv::Mat& gameMat)
 			3);
 		// 绘制物品
 		if (goods[i].getType() > 0) {
-			goods[i].getMat().copyTo(gameMat(cv::Rect(
-				185 + i * 60,
-				710,
-				60,
-				60
-				)));
+			goodsMat = goods[i].getMat();
+			copyAlphaTo(goodsMat, gameMat, cv::Point(185 + i * 70, 710));
 		}
 		// 绘制数量
 		cv::putText(gameMat,
 			std::to_string(goods[i].getNum()),
-			cv::Point(184 + i * 70, 718),
+			cv::Point(185 + i * 70, 720),
 			cv::FONT_HERSHEY_SIMPLEX,
 			0.55,
-			cv::Scalar(255, 0, 0));
+			cv::Scalar(255, 0, 0),
+			2);
+	}
 
-		// 绘制手握部分
+	// 重新绘制在手上的那个框
+	cv::rectangle(gameMat,
+		cv::Point(180 + atHand * 70, 700),
+		cv::Point(250 + atHand * 70, 770),
+		cv::Scalar(200, 200, 200),
+		5);
 
+	// 绘制手握部分
+	goodsMat = goods[atHand].getMat();
+	copyAlphaTo(goodsMat, gameMat, cv::Point(50, 710));
+
+	return;
+}
+
+void Bag::tidyUp(void)
+{
+	for (int i = 0; i < CAPACITY; i++) {
+		for (int j = i + 1; j < CAPACITY; j++) {
+			if (goods[i].getType() == 0 || goods[i].getNum() == 0) {
+				goods[i] = goods[j];
+				goods[j] = Goods();
+				continue;
+			}
+			if (!goods[i].equals(goods[j])) {
+				continue;
+			}
+			if (goods[i].getNum() < MAXGOODSNUM) {
+				unsigned long long tot = (unsigned long long)goods[i].getNum() +
+					(unsigned long long)goods[j].getNum();
+				if (tot > MAXGOODSNUM) {
+					goods[i].setNum(MAXGOODSNUM);
+				}
+				else {
+					goods[i].setNum(tot);
+					goods[j] = Goods();
+				}
+			}
+		}
 	}
 	return;
 }

@@ -72,6 +72,13 @@ bool Goods::sub(unsigned int sub)
 	return false;
 }
 
+static cv::Mat getDefaultGoodsMat(void)
+{
+	static cv::Mat defaultGoodsMat =
+		cv::Mat(60, 60, CV_8UC4, cv::Scalar(0, 0, 0, 0));
+	return defaultGoodsMat;
+}
+
 cv::Mat Goods::getMat(void)
 {
 	switch (type) {
@@ -80,5 +87,5 @@ cv::Mat Goods::getMat(void)
 	default:
 		break;
 	}
-	return getDefaultMat();
+	return getDefaultGoodsMat();
 }

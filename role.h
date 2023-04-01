@@ -2,6 +2,7 @@
 #define _ROLE_H_
 
 #include <opencv2/opencv.hpp>
+#include "tools.h"
 
 #define LEFT 0
 #define UP 1

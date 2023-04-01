@@ -3,6 +3,7 @@
 
 #include <opencv2/opencv.hpp>
 #include "goods.h"
+#include "tools.h"
 
 #define CAPACITY 8		// ±³°üÈÝÁ¿
 
@@ -23,6 +24,7 @@ public:
 	bool putGoodsIn(Goods newGoods);
 	Goods throwAway(void);
 	void paintBagInGame(cv::Mat& gameMat);
+	void tidyUp(void);
 };
 
 #endif // _BAG_H_

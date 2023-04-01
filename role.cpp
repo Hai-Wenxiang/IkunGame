@@ -88,11 +88,11 @@ static cv::Mat getRoleMat(unsigned short state)
 	};
 
 	if (state < sizeof(roleMats) / sizeof(cv::Mat)) {
+		addAlpha(roleMats[state]);
 		return roleMats[state];
 	}
 
-	static cv::Mat defaultMat = cv::imread("pictures/default.png");
-	return defaultMat;
+	return getDefaultMat();
 }
 
 cv::Mat Role::getMat(void)

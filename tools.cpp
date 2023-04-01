@@ -1,25 +1,47 @@
 #include "tools.h"
 
-void addAlpha(cv::Mat& mat)
+void addAlpha(cv::Mat& src)
 {
-	return;
-	switch (mat.channels()) {
+	switch (src.channels()) {
 	case 1:
-		cv::cvtColor(mat, mat, cv::COLOR_GRAY2BGR);
-		break;
+		cv::cvtColor(src, src, cv::COLOR_GRAY2RGB);
 	case 3:
-		cv::cvtColor(mat, mat, cv::COLOR_BGR2BGRA);
-		return;
 		break;
 	default:
 		return;
 	}
 
-	std::vector<cv::Mat> channels;
-	static cv::Mat alpha(mat.size(), CV_8UC1, cv::Scalar(255));
-	cv::split(mat, channels);
-	channels.push_back(alpha);
-	cv::merge(channels, mat);
+	cv::Mat dst = cv::Mat(src.rows, src.cols, CV_8UC4);
+
+	std::vector<cv::Mat> srcChannels;
+	std::vector<cv::Mat> dstChannels;
+	//分离通道
+	cv::split(src, srcChannels);
+
+	dstChannels.push_back(srcChannels[0]);
+	dstChannels.push_back(srcChannels[1]);
+	dstChannels.push_back(srcChannels[2]);
+	//添加透明度通道
+	dstChannels.push_back(cv::Mat(src.rows, src.cols, CV_8UC1, cv::Scalar(255)));
+	//合并通道
+	cv::merge(dstChannels, dst);
+	src = dst;
+	return;
+}
+
+void copyAlphaTo(cv::Mat& src, cv::Mat& dst, cv::Point pos)
+{
+	int alpha;
+	for (int i = 0; i < src.rows; i++) {
+		for (int j = 0; j < src.cols; j++) {
+			alpha = src.at<cv::Vec4b>(i, j)[3];
+			for (int k = 0; k < 3; k++) {
+				dst.at<cv::Vec4b>(i + pos.y, j + pos.x)[k] = (uchar)
+					((alpha * src.at<cv::Vec4b>(i, j)[k] +
+					(255 - alpha) * dst.at<cv::Vec4b>(i + pos.y, j + pos.x)[k]) / 255);
+			}
+		}
+	}
 	return;
 }
 

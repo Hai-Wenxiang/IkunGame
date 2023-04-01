@@ -101,7 +101,7 @@ static cv::Mat getPlainMatByBase(unsigned char base)
 	case 0x4:	// 沙漠
 	case 0x5:	// 深沙漠
 	default:
-		return cv::imread("pictures/default.png");
+		return getDefaultMat();
 	}
 }
 
@@ -116,7 +116,7 @@ static cv::Mat getUnknownMatByBase(unsigned int base)
 	case 0x4:	// 沙漠
 	case 0x5:	// 深沙漠
 	default:
-		return cv::imread("pictures/default.png");
+		return getDefaultMat();
 	}
 }
 
@@ -131,7 +131,7 @@ static cv::Mat getWaterMat(unsigned short type)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 static cv::Mat getDeepWaterMat(unsigned short type)
@@ -141,7 +141,7 @@ static cv::Mat getDeepWaterMat(unsigned short type)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 static cv::Mat getForestMat(unsigned short type)
@@ -151,7 +151,7 @@ static cv::Mat getForestMat(unsigned short type)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 static cv::Mat getDeepForestMat(unsigned short type)
@@ -161,7 +161,7 @@ static cv::Mat getDeepForestMat(unsigned short type)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 static cv::Mat getDesertMat(unsigned short type)
@@ -171,7 +171,7 @@ static cv::Mat getDesertMat(unsigned short type)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 static cv::Mat getDeepDesertMat(unsigned short type)
@@ -181,7 +181,7 @@ static cv::Mat getDeepDesertMat(unsigned short type)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 cv::Mat Box::getMat(void)
@@ -215,7 +215,7 @@ cv::Mat Box::getMat(void)
 		break;
 	}
 
-	return cv::imread("pictures/default.png");
+	return getDefaultMat();
 }
 
 /* 挖掘未知方块，使其变成已知 */
