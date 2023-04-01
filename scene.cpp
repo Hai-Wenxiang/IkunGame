@@ -124,28 +124,36 @@ void Scene::move(int key)
 {
 	switch (key) {
 	case 'a':
-		if (rolePos.x > 0 && canMoveTo(boxes[rolePos.y][rolePos.x - 1])) {
+		if (role.getToward() != LEFT) {
+			role.setToward(LEFT);
+		}
+		else if (rolePos.x > 0 && canMoveTo(boxes[rolePos.y][rolePos.x - 1])) {
 			rolePos.x--;
 		}
-		role.setToward(LEFT);
 		break;
 	case 'w':
-		if (rolePos.y > 0 && canMoveTo(boxes[rolePos.y - 1][rolePos.x])) {
+		if (role.getToward() != UP) {
+			role.setToward(UP);
+		}
+		else if (rolePos.y > 0 && canMoveTo(boxes[rolePos.y - 1][rolePos.x])) {
 			rolePos.y--;
 		}
-		role.setToward(UP);
 		break;
 	case 'd':
-		if (rolePos.x < gameWidth - 1 && canMoveTo(boxes[rolePos.y][rolePos.x + 1])) {
+		if (role.getToward() != RIGHT) {
+			role.setToward(RIGHT);
+		}
+		else if (rolePos.x < gameWidth - 1 && canMoveTo(boxes[rolePos.y][rolePos.x + 1])) {
 			rolePos.x++;
 		}
-		role.setToward(RIGHT);
 		break;
 	case 's':
-		if (rolePos.y < gameWidth - 1 && canMoveTo(boxes[rolePos.y + 1][rolePos.x])) {
+		if (role.getToward() != DOWN) {
+			role.setToward(DOWN);
+		}
+		else if (rolePos.y < gameWidth - 1 && canMoveTo(boxes[rolePos.y + 1][rolePos.x])) {
 			rolePos.y++;
 		}
-		role.setToward(DOWN);
 		break;
 	default:
 		break;
