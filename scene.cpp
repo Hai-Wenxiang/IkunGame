@@ -78,6 +78,7 @@ void Scene::parseKeyInWelcome(int key)
 		roleState = 0;
 		seed = rand();
 		boxes = newBoxes(seed, gameWidth);
+		bag = Bag();
 		break;
 	case 1:
 		type = SEEBUTTON;
@@ -219,6 +220,7 @@ void Scene::exitGame(void)
 	type = WELCOME;
 	deleteBoxes(boxes, gameWidth);
 	boxes = NULL;
+	bag.~Bag();
 	return;
 }
 
@@ -392,6 +394,7 @@ Scene::~Scene(void)
 {
 	deleteBoxes(boxes, gameWidth);
 	boxes = NULL;
+	bag.~Bag();
 	return;
 }
 

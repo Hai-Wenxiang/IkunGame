@@ -54,6 +54,12 @@
     <ClCompile Include="box_load.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="goods.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="bag.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h">
@@ -69,6 +75,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="box_load.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="goods.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="bag.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

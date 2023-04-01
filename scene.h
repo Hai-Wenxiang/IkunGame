@@ -5,6 +5,7 @@
 #include "role.h"
 #include "box.h"
 #include "music.h"
+#include "bag.h"
 
 /* 一些界面的种类 */
 #define WELCOME 0		// 欢迎界面
@@ -33,6 +34,7 @@ private:
 	unsigned short roleState;	// 主角状态
 	int seed;					// 种子号
 	Box*** boxes;				// 相当于二维数组，存储方块的状态
+	Bag bag;					// 背包
 
 	void parseKeyInWelcome(int key);
 	void parseKeyInSetFPS(int key);

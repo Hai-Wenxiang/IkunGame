@@ -129,16 +129,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="bag.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="box_load.cpp" />
+    <ClCompile Include="goods.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="music.cpp" />
     <ClCompile Include="role.cpp" />
     <ClCompile Include="scene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bag.h" />
     <ClInclude Include="box.h" />
     <ClInclude Include="box_load.h" />
+    <ClInclude Include="goods.h" />
     <ClInclude Include="music.h" />
     <ClInclude Include="role.h" />
     <ClInclude Include="scene.h" />
