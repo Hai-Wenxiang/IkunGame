@@ -97,19 +97,18 @@ void Bag::paintBagInGame(cv::Mat& gameMat)
 			cv::Point(250 + i * 70, 770),
 			cv::Scalar(127, 127, 127),
 			3);
-		// 绘制物品
-		if (goods[i].getType() > 0) {
+		// 绘制物品及其数量
+		if (goods[i].getType() > 0 && goods[i].getNum() > 0) {
 			goodsMat = goods[i].getMat();
 			copyAlphaTo(goodsMat, gameMat, cv::Point(185 + i * 70, 710));
+			cv::putText(gameMat,
+				std::to_string(goods[i].getNum()),
+				cv::Point(185 + i * 70, 720),
+				cv::FONT_HERSHEY_SIMPLEX,
+				0.55,
+				cv::Scalar(255, 0, 0),
+				2);
 		}
-		// 绘制数量
-		cv::putText(gameMat,
-			std::to_string(goods[i].getNum()),
-			cv::Point(185 + i * 70, 720),
-			cv::FONT_HERSHEY_SIMPLEX,
-			0.55,
-			cv::Scalar(255, 0, 0),
-			2);
 	}
 
 	// 重新绘制在手上的那个框
@@ -120,8 +119,10 @@ void Bag::paintBagInGame(cv::Mat& gameMat)
 		5);
 
 	// 绘制手握部分
-	goodsMat = goods[atHand].getMat();
-	copyAlphaTo(goodsMat, gameMat, cv::Point(50, 710));
+	if (goods[atHand].getType() > 0 && goods[atHand].getNum() > 0) {
+		goodsMat = goods[atHand].getMat();
+		copyAlphaTo(goodsMat, gameMat, cv::Point(50, 710));
+	}
 
 	return;
 }

@@ -2,7 +2,7 @@
 #include <thread>
 #include "scene.h"
 #include "music.h"
-//#pragma comment( linker, "/subsystem:windows /entry:mainCRTStartup" )
+#pragma comment( linker, "/subsystem:windows /entry:mainCRTStartup" )
 
 int main()
 {
@@ -10,7 +10,6 @@ int main()
 	std::thread music(playLoop, NGM);
 	Scene scene = Scene();
 	ULONGLONG startTime, remainTime;
-	std::cout << "Box ------- > " << sizeof(Box) << '\t' << sizeof(Scene) << std::endl;
 
 	music.detach();
 	srand(time(NULL));
