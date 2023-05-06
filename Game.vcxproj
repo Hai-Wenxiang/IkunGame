@@ -136,6 +136,7 @@
     <ClCompile Include="goods.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="music.cpp" />
+    <ClCompile Include="perlin.cpp" />
     <ClCompile Include="role.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="scene_load.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="box_load.h" />
     <ClInclude Include="goods.h" />
     <ClInclude Include="music.h" />
+    <ClInclude Include="perlin.h" />
     <ClInclude Include="role.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="scene_load.h" />

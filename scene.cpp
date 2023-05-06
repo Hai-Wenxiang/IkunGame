@@ -290,14 +290,14 @@ void Scene::parseKeyInGame(int key)
 }
 
 /* 解析输入的字符，若退出游戏则返回false */
-void Scene::parseKey(int key)
+void Scene::parseKey(int key, std::set<unsigned long long> musicSet)
 {
 	std::cout << key << std::endl;
 	if (key == -1) {
 		return;
 	}
 
-	std::thread music(playOnce, JI);
+	std::thread music(playOnce, JI, musicSet);
 	music.detach();
 
 	switch (type) {
@@ -492,9 +492,9 @@ bool Scene::notExitGame(int key)
 	return type != WELCOME || key != ESC;
 }
 
-void Scene::parse(int key)
+void Scene::parse(int key, std::set<unsigned long long> musicSet)
 {
-	parseKey(key);
+	parseKey(key, musicSet);
 	parseScene();
 	return;
 }

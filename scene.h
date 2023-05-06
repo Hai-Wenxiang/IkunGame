@@ -48,7 +48,7 @@ private:
 	void fetch(void);
 	void exitGame(void);
 	void parseKeyInGame(int key);
-	void parseKey(int key);
+	void parseKey(int key, std::set<unsigned long long> musicSet);
 	void parseScene(void);
 	cv::Mat getMatInWelcome(void);
 	cv::Mat getMatInSetFPS(void);
@@ -74,7 +74,7 @@ public:
 	Box*** getBoxes(void);
 
 	bool notExitGame(int key);
-	void parse(int key);
+	void parse(int key, std::set<unsigned long long> musicSet);
 	cv::Mat getMat(void);
 };
 
