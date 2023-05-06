@@ -71,9 +71,9 @@ void Scene::parseKeyInWelcome(int key)
 		return;
 	}
 
+	std::random_device randNum;
 	switch (welcomeMode) {
 	case 0:
-		std::random_device randNum;
 		type = GAME;
 		role = Role();
 		rolePos.x = rolePos.y = gameWidth >> 1;
