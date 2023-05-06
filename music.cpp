@@ -52,7 +52,7 @@ void playOnce(const char* musicPos, std::set<unsigned long long> musicSet)
 void playLoop(const char* musicPos)
 {
 	WCHAR text[MAXLEN] = { 0 };
-	swprintf(text, MAXLEN, L"%hs%hs%hs", "play ", musicPos);
+	swprintf(text, MAXLEN, L"%hs%hs", "play ", musicPos);
 	while (true) {
 		mciSendString(text, NULL, 0, NULL);
 	}
