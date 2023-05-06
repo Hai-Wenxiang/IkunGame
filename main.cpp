@@ -13,7 +13,6 @@ int main()
 	ULONGLONG startTime, remainTime;
 
 	music.detach();
-	srand(time(NULL));
 	for (int key = -1; scene.notExitGame(key); key = cv::waitKey(remainTime)) {
 		startTime = GetTickCount64();
 		scene.parse(key, musicSet);

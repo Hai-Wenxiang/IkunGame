@@ -3,8 +3,9 @@
 /* 根据所在位置和种子号，得到box种类 */
 static unsigned short getBoxType(int row, int col, int seed, unsigned short kindBase)
 {
+	std::random_device randNum;
 	unsigned short base = kindBase;
-	unsigned short kind = rand() % 3;
+	unsigned short kind = randNum() % 3;
 	if (kind > 0) {
 		kind = (kind << 1) - 1;
 	}
@@ -72,11 +73,12 @@ void Scene::parseKeyInWelcome(int key)
 
 	switch (welcomeMode) {
 	case 0:
+		std::random_device randNum;
 		type = GAME;
 		role = Role();
 		rolePos.x = rolePos.y = gameWidth >> 1;
 		roleState = 0;
-		seed = rand();
+		seed = randNum();
 		boxes = newBoxes(seed, gameWidth);
 		bag = Bag();
 		break;
