@@ -2,7 +2,7 @@
 #include <thread>
 #include "scene.h"
 #include "music.h"
-// #pragma comment( linker, "/subsystem:windows /entry:mainCRTStartup" )
+#pragma comment( linker, "/subsystem:windows /entry:mainCRTStartup" )
 
 int main()
 {
