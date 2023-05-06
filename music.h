@@ -2,10 +2,8 @@
 #define _MUSIC_H_
 
 #include <set>
-#include <time.h>
 #include <string>
 #include <random>
-#include <stdlib.h>
 #include <iostream>
 #include <Windows.h>
 #pragma comment(lib,"WinMM.Lib")
