@@ -65,11 +65,11 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\属性配置\OpenCV460x64Debug.props" />
+    <Import Project="..\..\属性配置\OpenCV480x64Debug.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\属性配置\OpenCV460x64Release.props" />
+    <Import Project="..\..\属性配置\OpenCV480x64Release.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bag.cpp" />
+    <ClCompile Include="composition_table.cpp" />
     <ClCompile Include="goods_load.cpp" />
     <ClCompile Include="box.cpp" />
     <ClCompile Include="box_load.cpp" />
@@ -144,6 +145,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bag.h" />
+    <ClInclude Include="composition_table.h" />
     <ClInclude Include="goods_load.h" />
     <ClInclude Include="box.h" />
     <ClInclude Include="box_load.h" />

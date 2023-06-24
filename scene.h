@@ -8,6 +8,7 @@
 #include "bag.h"
 #include "scene_load.h"
 #include "tools.h"
+#include "composition_table.h"
 
 /* 一些界面的种类 */
 #define WELCOME 0		// 欢迎界面
@@ -37,6 +38,7 @@ private:
 	int seed;					// 种子号
 	Box*** boxes;				// 相当于二维数组，存储方块的状态
 	Bag bag;					// 背包
+	CompositionTable ct;		// 合成表
 
 	void parseKeyInWelcome(int key);
 	void parseKeyInSetFPS(int key);

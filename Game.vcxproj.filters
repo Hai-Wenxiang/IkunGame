@@ -75,6 +75,9 @@
     <ClCompile Include="perlin.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="composition_table.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="box.h">
@@ -108,6 +111,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="perlin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="composition_table.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,5 +6,6 @@
 
 cv::Mat getWelcomeMat(void);
 cv::Mat getSetFPSMat(void);
+cv::Mat getCompositionTableMat(void);
 
 #endif // _SCENE_LOAD_H_

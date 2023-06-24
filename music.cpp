@@ -11,7 +11,6 @@ unsigned long long getMusicStrData(char* str)
 
 char* getMusicStr(std::set<unsigned long long> musicSet, std::random_device& randSeed)
 {
-	int randNum = 0;
 	unsigned long long data = 0;
 
 	char* p = (char*)malloc(sizeof(char) * (MUSICSTRLEN + 1));
@@ -20,8 +19,7 @@ char* getMusicStr(std::set<unsigned long long> musicSet, std::random_device& ran
 	}
 	while (data == (unsigned long long)0) {
 		for (int i = 0; i < MUSICSTRLEN; i++) {
-			randNum = randSeed() % 26;
-			p[i] = randNum + 'a';
+			p[i] = randSeed() % 26 + 'a';
 		}
 		data = getMusicStrData(p);
 		if (musicSet.find(data) == musicSet.end()) {

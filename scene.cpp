@@ -81,6 +81,7 @@ void Scene::parseKeyInWelcome(int key)
 		seed = randNum();
 		boxes = newBoxes(seed, gameWidth);
 		bag = Bag();
+		ct = CompositionTable();
 		break;
 	case 1:
 		type = SEEBUTTON;
@@ -242,11 +243,17 @@ void Scene::exitGame(void)
 	deleteBoxes(boxes, gameWidth);
 	boxes = NULL;
 	bag.~Bag();
+	ct.~CompositionTable();
 	return;
 }
 
 void Scene::parseKeyInGame(int key)
 {
+	// 如果进行了与合成表相关的操作
+	if (ct.parseKey(key, bag)) {
+		return;
+	}
+
 	switch (key) {
 	// 上下左右移动
 	case 'a':
@@ -392,11 +399,22 @@ void Scene::addState(cv::Mat mat)
 	return;
 }
 
+static void addCompositionTable(cv::Mat& mat, CompositionTable ct, Bag bag)
+{
+	cv::Mat ctMat = ct.getMat(bag).clone();
+	changeAlpha(ctMat, 204); // 80%不透明度
+	copyAlphaTo(ctMat, mat, cv::Point(330, 130));
+	return;
+}
+
 cv::Mat Scene::getMatInGame(void)
 {
 	cv::Mat mat = cv::Mat(height, width, CV_8UC4, cv::Scalar(100, 100, 100, 255));
 	addMap(mat);
 	addState(mat);
+	if (ct.getState() > 0) {
+		addCompositionTable(mat, ct, bag);
+	}
 	return mat;
 }
 

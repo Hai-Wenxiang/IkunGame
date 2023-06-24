@@ -19,6 +19,9 @@ int main()
 		img = scene.getMat();
 		remainTime = 1000 / scene.getFps() - (GetTickCount64() - startTime);
 		cv::imshow("Game", img);
+		if (mouseClickOut()) {
+			exit(0);
+		}
 	}
 	return 0;
 }
