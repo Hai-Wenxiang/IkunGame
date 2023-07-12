@@ -506,10 +506,17 @@ Box*** Scene::getBoxes(void)
 	return boxes;
 }
 
+static bool isBackground(void)
+{
+	HWND gameHwnd = FindWindowA(NULL, "Game");
+	HWND foreHwnd = GetForegroundWindow();
+	return gameHwnd != foreHwnd;
+}
+
 /* 判定是否退出游戏 */
 bool Scene::notExitGame(int key)
 {
-	return type != WELCOME || key != ESC;
+	return isBackground() || type != WELCOME || key != ESC;
 }
 
 void Scene::parse(int key, std::set<unsigned long long> musicSet)
